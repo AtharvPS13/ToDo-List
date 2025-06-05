@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ToDo-List</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+        <div>
+            <h1>ToDo</h1>
+            <img id="TaskAddImage" src="./images/add.svg" alt="plus button to add new project">
+        </div>
+        <!-- Project List -->
+        <ul class="ProjectList"></ul>
+    </nav>
+    <main>
+        <header>
+            <p>Projects</p><p>></p>
+            <div id="ProjectNo">First Project</div>
+        </header>
+        <div class="ButtonDiv">
+            <button class="TaskButton" data-task-button>Add task</button>
+        </div>
+        <div class="TaskGrid"></div>
+    </main>
+
+    <!-- Dialog box to Add Task -->
+    <dialog id="ProjectDialogBox">
+        <form id="ProjectForm">
+            <label for="ProjectName">Project Name</label>
+            <input type="text" id="ProjectName" required>
+
+            <button id="ProjectButton">Add Project</button>
+            <button type="button" id="ProjectButtonClose">Close</button>
+        </form>
+    </dialog>
+
+    <!-- Task Dialog -->
+    <dialog id="TaskDialogBox">
+        <form id="TaskForm">
+            <label for="TaskName">Task Name</label>
+            <input type="text" id ="TaskName" required>
+
+            <label for="TaskDate">Due Date</label>
+            <input type="Date" id="TaskDate" required>
+
+            <label for="TaskPriority">Priority</label>
+            <select id="TaskPriority">
+                <option value="low">Low</option>
+                <option value="medium">Medium</option>
+                <option value="high">High</option>
+            </select>
+
+            <label for="TaskDescription">Description</label>
+            <input type="text" id="TaskDescription" required>
+
+            <button id="AddTaskButton">Add Task</button>
+            <button id="CancelButton">Cancel</button>
+        </form>
+    </dialog>
+
+    <script src="script.js"></script>
+</body>
+</html>
