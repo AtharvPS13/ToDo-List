@@ -1,4 +1,3 @@
-const taskbutton= document.querySelector(".TaskButton");
 const addtaskimage = document.getElementById("TaskAddImage");
 const projectdialog = document.getElementById("ProjectDialogBox");
 const projectbutton = document.getElementById("ProjectButton");
@@ -79,3 +78,62 @@ function UpdateDisplay(){
         projectlist.appendChild(li);
     });
 }
+
+
+//Task section
+const taskButton = document.querySelector(".TaskButton");
+const taskDialog = document.getElementById("TaskDialogBox");
+const addTaskBtn = document.getElementById("AddTaskButton");
+const cancelButton= document.getElementById("CancelButton");
+const taskName = document.getElementById("TaskName");
+const taskDate = document.getElementById("TaskDate");
+const taskPriority = document.getElementById("TaskPriority");
+const taskDescription = document.getElementById("TaskDescription");
+
+
+//Open Task dialog box
+taskButton.addEventListener("click" ,()=>{
+    taskDialog.showModal();
+});
+
+addTaskBtn.addEventListener("click" ,(event)=>{
+    event.preventDefault();
+
+    addTask(taskName.value);
+    UpdateDisplay();
+    taskDialog.close();
+});
+
+cancelButton.addEventListener("click",(event)=>{
+    event.preventDefault();
+    taskDialog.close();
+});
+
+const taskLibrary =[];
+
+class Task {
+    static id=0;
+
+    constructor(TaskName,Date,Description,Priority) {
+        this.id = `Task-${++Task.id}`;
+        this.TaskName = TaskName;
+        this.TaskDate = Date;
+        this.Priority = Priority;
+        this.Description = Description;
+    }
+}
+
+function addTask(taskName){
+    if (taskName === "") return null;
+
+        const task = new Task (taskName);
+        taskLibrary.push(task);
+
+        return task;
+}
+
+
+
+
+
+
